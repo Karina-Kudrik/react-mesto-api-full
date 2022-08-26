@@ -1,0 +1,6 @@
+.elements__counter {
+   display: flex;
+   flex-direction: column;
+   text-align: center;
+   margin: 0;
+}

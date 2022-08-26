@@ -1,0 +1,26 @@
+.profile__button_type_edit{
+   width: 24px;
+   height: 24px;
+   background-image: url(../../../images/vector_edit.svg);
+   border: 1px solid #FFF;
+   background-color: #000;
+   background-repeat: no-repeat;
+   background-size: 10px 10px;
+   background-position: center;
+   cursor: pointer;
+   margin-left: 18px;
+   margin-top: 25px;
+   align-self: center;
+}
+.profile__button_type_edit:hover{
+   opacity: 0.5;
+}
+@media (max-width:620px){
+   .profile__button_type_edit{
+      width: 18px;
+      height: 18px;
+      align-self: flex-end;
+      margin-left: 10px;
+      margin-bottom: 6px;
+   }
+}

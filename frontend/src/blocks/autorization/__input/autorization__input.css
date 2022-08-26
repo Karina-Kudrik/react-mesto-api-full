@@ -1,0 +1,27 @@
+.autorization__input {
+   background-color: black;
+   border: none;
+   border-bottom: 1px solid white;
+   margin-bottom: 30px;
+   width: 358px;
+   font-family: 'Inter';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 14px;
+   line-height: 17px;
+   color: white;
+   padding-bottom: 10px;
+}
+.autorization__input:focus {
+   outline: none;
+   background-color: black;
+}
+
+@media (max-width: 560px) {
+   .autorization__input {
+      width: 260px;
+   }
+   .autorization__input:last-of-type  {
+      margin-bottom: 0;
+   }
+}

@@ -1,0 +1,6 @@
+.elements__figcaption{
+   display: flex;
+   justify-content: space-between;
+   max-width: 246px;
+   margin: 20px 15px 25px 21px;
+}

@@ -1,0 +1,43 @@
+{
+  "name": "express-mesto-gha",
+  "version": "1.0.0",
+  "description": "Проект об интересных и красивых местах нашей родины",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npx eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Karina-Kudrik/express-mesto-gha.git"
+  },
+  "keywords": [],
+  "author": "Karina Kudrik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Karina-Kudrik/express-mesto-gha/issues"
+  },
+  "homepage": "https://github.com/Karina-Kudrik/express-mesto-gha#readme",
+  "devDependencies": {
+    "eslint": "^8.20.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "nodemon": "^2.0.19"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.0",
+    "celebrate": "^15.0.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "express-winston": "^4.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^4.9.0",
+    "mongoose": "^6.5.0",
+    "validator": "^13.7.0",
+    "winston": "^3.8.1"
+  }
+}

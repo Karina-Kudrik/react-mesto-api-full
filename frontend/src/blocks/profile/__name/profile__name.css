@@ -1,0 +1,16 @@
+.profile__name{
+   max-width: 290px;
+   font-family: 'Inter', 'Arial';
+   font-style: normal;
+   font-weight: 400;
+   font-size: calc((100vw - 320px)/(1280 - 320)*(42 - 27) + 27px);
+   line-height: calc((100vw - 320px)/(1280 - 320)*(48 - 32.68) + 32.68px);
+   color: #FFF;
+   margin-top: 22px;
+   margin-bottom: 0;
+   margin-left: 30px;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   overflow: hidden;
+   }
+   

@@ -1,0 +1,23 @@
+.header__user-email {
+   color: white;
+   font-family: 'Inter';
+   font-style: normal;
+   font-weight: 500;
+   font-size: 18px;
+   line-height: 22px;
+   margin-bottom: 46px;
+   margin-top: 51px;
+   margin-right: 24px;
+}
+
+@media (max-width: 560px) {
+   .header__user-email {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+      margin-top: 38px;
+      margin-right: 10px;
+   }
+}

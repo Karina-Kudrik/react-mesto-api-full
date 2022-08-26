@@ -1,0 +1,13 @@
+.footer__container{
+   max-width: 880px;
+   display: flex;
+   justify-content: flex-start;
+   margin: auto;
+   margin-top: 67px;
+   margin-bottom: 60px;
+}
+@media (max-width:620px){
+   .footer__container{
+      margin: 48px 19px 36px;
+   }
+}

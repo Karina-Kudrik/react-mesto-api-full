@@ -1,0 +1,8 @@
+.profile__image-container{
+   max-width: 168.75px;
+   height: 127.5px;
+   background-image: url(../../../images/vector_edit.svg);
+   background-size: 26px, 26px;
+   background-repeat: no-repeat;
+   background-position: center;
+}

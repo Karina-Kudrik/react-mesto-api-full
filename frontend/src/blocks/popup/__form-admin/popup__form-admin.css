@@ -1,0 +1,13 @@
+.popup__form-admin{
+   background-color: #FFF;
+   border-radius: 10px;
+   box-shadow: 0px 0px 25px;
+   padding-left: 36px;
+   padding-bottom: 37px;
+}
+@media (max-width: 560px){
+   .popup__form-admin{
+      padding-left: 22px;
+      padding-bottom: 25px;
+   }
+}

@@ -1,0 +1,31 @@
+.header__link {
+   text-decoration: none;
+   color: white;
+   font-family: 'Inter';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 18px;
+   line-height: 22px;
+   margin-bottom: 46px;
+   margin-top: 51px;
+}
+.header__link:hover {
+   cursor: pointer;
+   opacity: .6;
+}
+
+.header__link_grey {
+   color: #A9A9A9;
+}
+
+@media (max-width: 560px) {
+   .header__link {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+      margin-top: 38px;
+      margin-right: 27px;
+   }
+}

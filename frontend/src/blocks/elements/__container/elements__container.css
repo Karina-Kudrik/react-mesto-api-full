@@ -1,0 +1,18 @@
+.elements__container{
+   max-width: 880px;
+   width: 100%;
+   margin: auto;
+   display: grid;
+   grid-template-columns: repeat(auto-fit, 282px);
+   row-gap: 20px;
+   column-gap: 17px;
+   padding-left: 0;
+   margin-top: 47.25px;
+   justify-content: center;
+}
+@media (max-width:620px){
+   .elements__container{
+      display: flex;
+      flex-direction: column;
+   }
+}

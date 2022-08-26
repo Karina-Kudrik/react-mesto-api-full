@@ -1,0 +1,15 @@
+.elements__card{
+   height: 361px;
+   width: 282px;
+   border-radius: 10px;
+   overflow: hidden;
+   background-color: #FFF;
+   list-style-type: none;
+   position: relative;
+}
+@media (max-width:620px){
+   .elements__card{
+      margin: auto;
+      column-gap: 0;
+   }
+}
