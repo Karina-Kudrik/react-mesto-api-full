@@ -14,7 +14,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "npm run build && scp -r ./build/* karina_kudrik@84.201.174.62:/home/karina_kudrik/react-mesto-api-full/frontend",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -39,6 +39,12 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^4.0.0"
-  }
+    "gh-pages": "^4.0.0",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  },
+  "description": "В данной работе реализованы запросы на авторизацию и регистрацию пользователей. Теперь возможность публиковать свои фотографии,видеть и оценивать лайками фотографии других пользователей доступна только зарегестрированным пользователям.",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
 }
