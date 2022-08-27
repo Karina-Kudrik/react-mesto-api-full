@@ -12,6 +12,16 @@ const { handleErrors } = require('./errors/handleErrors');
 const { regex } = require('./models/regex');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
+const { corsOptions } = {
+  origin: [
+    'http://karinakudrik.mesto.nomoredomains.sbs',
+    'https://karinakudrik.mesto.nomoredomains.sbs',
+    'http://localhost:3000',
+    'https://localhost:3000',
+  ],
+  credentials: true,
+};
+
 const app = express();
 const { PORT = 3000 } = process.env;
 mongoose.connect('mongodb://localhost:27017/mestodb')
@@ -22,7 +32,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(requestLogger);
-app.use(cors());
+app.use(cors(corsOptions));
 
 app.post('/signup', celebrate({
   body: Joi.object().keys({
