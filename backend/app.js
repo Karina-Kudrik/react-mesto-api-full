@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const { celebrate, Joi, errors } = require('celebrate');
+const cors = require('cors');
 const { createUser, login } = require('./controllers/users');
 const routesUsers = require('./routes/users');
 const routesCards = require('./routes/cards');
@@ -21,6 +22,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(requestLogger);
+app.use(cors());
 
 app.post('/signup', celebrate({
   body: Joi.object().keys({
