@@ -179,7 +179,9 @@ function App() {
       auth.autorize(password, email)
          .then((res) => {
             if(res.token) {   
-               localStorage.setItem('token', res.token);
+               localStorage.setItem('jwt', res.token);
+               console.log(res.token);
+               console.log('jwt');
                setLoggedIn(true);
                setEmail(email);
                history.push('/');
@@ -192,7 +194,8 @@ function App() {
    }
 
    function checkToken() {
-      let token = localStorage.getItem('token');
+      let token = localStorage.getItem('jwt');
+      console.log('jwt');
          if(token) {
             auth.getContent(token)
                .then((res) => {

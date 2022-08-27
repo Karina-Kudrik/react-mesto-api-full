@@ -82,6 +82,6 @@ export const api = new Api ({
    url: 'http://api.karinakudrik.mesto.nomoredomains.sbs/',
    headers: {
       'Authorization' : `Bearer ${localStorage.getItem('jwt')}`,
-      "Content-Type": "application/json"
+      'Content-Type': 'application/json'
    }
 });
