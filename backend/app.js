@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const { celebrate, Joi, errors } = require('celebrate');
+const cors = require('cors');
 const { createUser, login } = require('./controllers/users');
 const routesUsers = require('./routes/users');
 const routesCards = require('./routes/cards');
@@ -10,16 +11,6 @@ const NotFoundError = require('./errors/NotFoundError');
 const { handleErrors } = require('./errors/handleErrors');
 const { regex } = require('./models/regex');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-
-const { corsOptions } = {
-  origin: [
-    'http://karinakudrik.mesto.nomoredomains.sbs',
-    'https://karinakudrik.mesto.nomoredomains.sbs',
-    'http://localhost:3000',
-    'https://localhost:3000',
-  ],
-  credentials: true,
-};
 
 const app = express();
 const { PORT = 3000 } = process.env;
@@ -30,21 +21,7 @@ mongoose.connect('mongodb://localhost:27017/mestodb')
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use((req, res, next) => {
-  const { origin } = req.headers;
-  const requestHeaders = req.headers['access-control-request-headers'];
-  const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
-  if (corsOptions.includes(origin)) {
-    const { method } = req;
-    res.header('Access-Control-Allow-Origin', origin);
-    if (method === 'OPTIONS') {
-      res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
-      res.header('Access-Control-Allow-Headers', requestHeaders);
-      return res.end();
-    }
-  }
-  next();
-});
+app.use(cors());
 
 app.use(requestLogger);
 
