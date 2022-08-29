@@ -12,76 +12,76 @@ export default class Api {
    }
 
    getUserInfo() {
-      return fetch(this._url + 'users/me', {
-         method:'GET',
+      return fetch(this._url + "users/me", {
+         method: "GET",
          headers: this._headers,
-      }).then(this._handleError); 
+      }).then(this._handleError);
    }
 
    getInitialCards() {
-      return fetch(this._url + 'cards', {
-         method:'GET',
-         headers: this._headers
+      return fetch(this._url + "cards", {
+         method: "GET",
+         headers: this._headers,
       }).then(this._handleError);
    }
 
    addCard(data) {
-      return fetch(this._url + 'cards', {
-         method:'POST',
+      return fetch(this._url + "cards", {
+         method: "POST",
          headers: this._headers,
-         body:JSON.stringify(data),
-      }).then(this._handleError); 
-   }
-   
-   deleteCard(id) {
-      return fetch(this._url + `cards/${id}`, {
-         method:'DELETE',
-         headers: this._headers,
-      }).then(this._handleError); 
+         body: JSON.stringify(data),
+      }).then(this._handleError);
    }
 
-   setUserInfo({name, about}) {
-      return fetch(this._url + 'users/me', {
-         method:'PATCH',
+   deleteCard(id) {
+      return fetch(this._url + `cards/${id}`, {
+         method: "DELETE",
          headers: this._headers,
-         body:JSON.stringify({name, about}),
-      }).then(this._handleError); 
+      }).then(this._handleError);
    }
-   
+
+   setUserInfo({ name, about }) {
+      return fetch(this._url + "users/me", {
+         method: "PATCH",
+         headers: this._headers,
+         body: JSON.stringify({ name, about }),
+      }).then(this._handleError);
+   }
+
    setLike(id) {
       return fetch(this._url + `cards/${id}/likes`, {
-         method:'PUT',
-         headers: this._headers
+         method: "PUT",
+         headers: this._headers,
       }).then(this._handleError);
    }
 
    deleteLike(id) {
       return fetch(this._url + `cards/${id}/likes`, {
-         method:'DELETE',
-         headers: this._headers
+         method: "DELETE",
+         headers: this._headers,
       }).then(this._handleError);
    }
 
    changeLikeCardStatus(id, isLiked) {
       return fetch(this._url + `cards/${id}/likes`, {
-         method: isLiked ? 'PUT' : 'DELETE',
-         headers: this._headers
+         method: isLiked ? "PUT" : "DELETE",
+         headers: this._headers,
       }).then(this._handleError);
    }
 
    setUserAvatar(data) {
-      return fetch(this._url + 'users/me/avatar', {
-         method: 'PATCH',
+      return fetch(this._url + "users/me/avatar", {
+         method: "PATCH",
          headers: this._headers,
-         body: JSON.stringify({avatar: data.avatar}),
-      }).then(this._handleError); 
+         body: JSON.stringify({ avatar: data.avatar }),
+      }).then(this._handleError);
    }
-}
+   }
 
-export const api = new Api ({
+   export const api = new Api({
    url: 'http://api.karinakudrik.mesto.nomoredomains.sbs/',
    headers: {
-      'Authorization' : `Bearer ${localStorage.getItem('jwt')}`,
-      'Content-Type': 'application/json'
-   }
+      'Authorization': `Bearer ${localStorage.getItem("jwt")}`,
+      "Content-Type": "application/json",
+   },
 });

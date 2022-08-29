@@ -12,7 +12,7 @@ function InfoToolTip({isOpen, onClose, isAuthComplete}) {
                   alt="Регистрация"
                />
                <h2 className="popup__notification">
-                  { isAuthComplete ? 'Вы успешно зарегестрировались!' : 'Что-то пошло не так!Попробуйте еще раз' }
+                  { isAuthComplete ? 'Вы успешно зарегестрировались!' : 'Что-то пошло не так! Попробуйте еще раз' }
                </h2>
                </>
             }

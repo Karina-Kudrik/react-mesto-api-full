@@ -33,7 +33,8 @@ module.exports.deleteCard = (req, res, next) => {
       if (card.owner._id.toString() !== req.user._id.toString()) {
         next(new ForbiddenError('Вы можете удалять только свои публикации.'));
       } else {
-        card.remove()
+        card
+          .remove()
           .then(() => res.send({ data: card }))
           .catch(next);
       }
@@ -57,7 +58,7 @@ module.exports.likeCard = (req, res, next) => {
       if (!card) {
         next(new NotFoundError('Карточка не найдена.'));
       } else {
-        res.send({ card });
+        res.send(card);
       }
     })
     .catch((err) => {
@@ -79,7 +80,7 @@ module.exports.dislikeCard = (req, res, next) => {
       if (!card) {
         next(new NotFoundError('Карточка не найдена.'));
       } else {
-        res.send({ card });
+        res.send(card);
       }
     })
     .catch((err) => {
