@@ -42,6 +42,10 @@ function App() {
    const history = useHistory();
 
    useEffect(() => {
+      checkToken();
+   }, []);
+
+   useEffect(() => {
       if (loggedIn) {
          api
          .getUserInfo()
@@ -56,10 +60,6 @@ function App() {
          .catch((err) => console.log(err));
       }
    }, [loggedIn]);
-
-   useEffect(() => {
-      checkToken();
-   }, []);
 
    function handleEditProfileClick() {
       setIsEditProfilePopupOpen(true);
@@ -188,18 +188,16 @@ function App() {
                opened: true,
                isAuthComplete: true,
             });
+            history.push("/");
          }
          })
-         .then(() => {
-         history.push("/");
+         .catch((err) => {
+            console.log(err);
+            setIsInfoTooltipOpen({
+               opened: true,
+               isAuthComplete: false,
+            });
          })
-         .catch((err) => console.log(err));
-      // .finally(() => {
-      //   setIsInfoTooltipOpen({
-      //     opened: true,
-      //     isAuthComplete: true
-      //   });
-      // })
    }
 
    function handleLogin(password, email) {
@@ -218,10 +216,13 @@ function App() {
                .catch((err) => console.log(err));
          }
          })
-         .catch((err) => console.log(err));
-      // .finally(() => {
-      //   setIsInfoTooltipOpen(true);
-      // });
+         .catch((err) => {
+            console.log(err);
+            setIsInfoTooltipOpen({
+               opened: true,
+               isAuthComplete: false,
+            });
+         });
    }
 
    function checkToken() {
@@ -231,6 +232,7 @@ function App() {
          .getContent(token)
          .then((res) => {
             setLoggedIn(true);
+            setCurrentUser(res.data);
             setEmail(res.data.email);
             history.push("/");
          })
@@ -239,8 +241,9 @@ function App() {
    }
 
    function handleSignOut() {
-      localStorage.removeItem("jwt");
+      localStorage.clear();
       setLoggedIn(false);
+      setCurrentUser('');
       history.push("/sign-in");
    }
 

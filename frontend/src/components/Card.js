@@ -6,7 +6,6 @@ function Card({ card, onCardClick, onCardLike, onCardDelete }) {
   const [isLiked, setIsLiked] = useState(false);
 
   useEffect(() => {
-    console.log(card);
     setIsLiked(
       card.likes.some((userIdIsLiked) => userIdIsLiked === currentUser._id)
     );
