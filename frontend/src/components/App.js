@@ -232,7 +232,6 @@ function App() {
          .getContent(token)
          .then((res) => {
             setLoggedIn(true);
-            setCurrentUser(res.data);
             setEmail(res.data.email);
             history.push("/");
          })
