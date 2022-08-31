@@ -46,14 +46,15 @@ function App() {
    }, []);
 
    useEffect(() => {
+      const token = localStorage.getItem('jwt');
       if (loggedIn) {
          api
-         .getUserInfo()
+         .getUserInfo(token)
          .then((res) => setCurrentUser(res.data))
          .catch((err) => console.log(err));
 
          api
-         .getInitialCards()
+         .getInitialCards(token)
          .then((res) => {
             setCards(res.data);
          })
@@ -86,12 +87,9 @@ function App() {
       const isLiked = card.likes.some(
          (userIdIsLiked) => userIdIsLiked === currentUser._id
       );
-      console.log(isLiked);
-
       api
          .changeLikeCardStatus(card._id, !isLiked)
          .then((newCard) => {
-         console.log(newCard);
          setCards((state) =>
             state.map((c) => (c._id === card._id ? newCard : c))
          );
@@ -182,7 +180,6 @@ function App() {
       auth
          .register(password, email)
          .then((res) => {
-         console.log(res);
          if (res) {
             setIsInfoTooltipOpen({
                opened: true,
@@ -204,16 +201,11 @@ function App() {
       auth
          .autorize(password, email)
          .then((res) => {
-         if (res.token) {
+         if (res) {
             localStorage.setItem("jwt", res.token);
             setLoggedIn(true);
             setEmail(email);
             history.push("/");
-
-            api
-               .getUserInfo()
-               .then((res) => setCurrentUser(res.data))
-               .catch((err) => console.log(err));
          }
          })
          .catch((err) => {
