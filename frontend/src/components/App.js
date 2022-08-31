@@ -242,7 +242,6 @@ function App() {
    function handleSignOut() {
       localStorage.clear();
       setLoggedIn(false);
-      setCurrentUser('');
       history.push("/sign-in");
    }
 
