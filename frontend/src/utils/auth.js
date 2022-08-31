@@ -1,4 +1,5 @@
 const BASE_URL = 'https://api.karinakudrik.mesto.nomoredomains.sbs';
+
 const checkResponse = (response) => {
    return response.ok
       ? response.json()

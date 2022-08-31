@@ -10,9 +10,7 @@ export default class Api {
       }
       return Promise.reject(`Ошибка: ${res.status}`);
    }
-   // setToken(token) {
-   //    this._headers.authorization = `Bearer ${token}`
-   // }
+
    getUserInfo() {
       return fetch(this._url + "users/me", {
          method: "GET",
@@ -110,7 +108,6 @@ export default class Api {
    export const api = new Api({
    url: 'https://api.karinakudrik.mesto.nomoredomains.sbs/',
    headers: {
-      //authorization:"Bearer " + localStorage.getItem("jwt"),
       "Accept": "application/json",
       "Content-Type": "application/json",
    },
