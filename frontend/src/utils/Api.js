@@ -106,6 +106,7 @@ export default class Api {
    }
 
    export const api = new Api({
+      // url: 'http://localhost:3001/',
    url: 'https://api.karinakudrik.mesto.nomoredomains.sbs/',
    headers: {
       "Accept": "application/json",
