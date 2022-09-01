@@ -107,12 +107,14 @@ module.exports.updateProfile = (req, res, next) => {
 
 module.exports.updateAvatar = (req, res, next) => {
   const { avatar } = req.body;
+  console.log('inupdate', req);
   User.findByIdAndUpdate(
     req.user._id,
     { avatar },
     { new: true, runValidators: true },
   )
     .then((user) => {
+      console.log('then');
       if (!user) {
         next(new NotFoundError('Пользователь с таким id не найден.'));
       } else {
@@ -120,6 +122,7 @@ module.exports.updateAvatar = (req, res, next) => {
       }
     })
     .catch((err) => {
+      console.log(err);
       if (err.name === 'ValidationError' || err.name === 'CastError') {
         next(new BadRequestError('Неверные данные для обновления автара пользователя'));
       } else {
