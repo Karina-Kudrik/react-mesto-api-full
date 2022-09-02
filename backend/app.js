@@ -10,7 +10,6 @@ const routesCards = require('./routes/cards');
 const auth = require('./middlewares/auth');
 const NotFoundError = require('./errors/NotFoundError');
 const { handleErrors } = require('./errors/handleErrors');
-const { regex } = require('./models/regex');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const app = express();
@@ -37,9 +36,6 @@ app.post('/signup', celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email(),
     password: Joi.string().required(),
-    // name: Joi.string().min(2).max(30),
-    // about: Joi.string().min(2).max(30),
-    // avatar: Joi.string().uri(),
   }),
 }), createUser);
 
